@@ -1,0 +1,57 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Actividad - Anagami" active="actividad">
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">Bitacora</div>
+      <h1>Actividad reciente</h1>
+      <p class="subtitle">Registro de cargas, confirmaciones y actualizaciones.</p>
+    </div>
+    <div class="topbar-actions">
+      <button class="btn ghost">Filtrar</button>
+      <button class="btn primary">Exportar</button>
+    </div>
+  </header>
+
+  <section class="card">
+    <div class="activity">
+      <div class="activity-item">
+        <div class="dot"></div>
+        <div>
+          <div class="name">Se creo carpeta para Emilia Vera</div>
+          <div class="muted">Administrador · hoy 08:32</div>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="dot"></div>
+        <div>
+          <div class="name">RRHH subio certificado de estudios</div>
+          <div class="muted">Camila Orellana · hoy 07:40</div>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="dot"></div>
+        <div>
+          <div class="name">Contabilidad actualizo liquidaciones</div>
+          <div class="muted">Matias Nuñez · ayer 17:05</div>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="dot"></div>
+        <div>
+          <div class="name">Solicitud de descarga aprobada</div>
+          <div class="muted">Javier Aguilar · ayer 16:20</div>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="dot"></div>
+        <div>
+          <div class="name">Carga de licencia medica</div>
+          <div class="muted">Laura Rojas · 08 feb 2026, 18:05</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Notificaciones - Anagami" active="notificaciones">
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">Alertas automaticas</div>
+      <h1>Notificaciones</h1>
+      <p class="subtitle">Configuracion de avisos por correo y alertas internas.</p>
+    </div>
+    <div class="topbar-actions">
+      <button class="btn ghost">Configurar</button>
+      <button class="btn primary">Nueva regla</button>
+    </div>
+  </header>
+
+  <section class="grid two-cols">
+    <div class="card">
+      <div class="card-header">
+        <h2>Alertas automaticas</h2>
+        <button class="btn ghost">Editar</button>
+      </div>
+      <div class="notice">
+        <div>
+          <div class="notice-title">Carga confirmada</div>
+          <p class="muted">RRHH subio certificado de antecedentes. Administrador notificado.</p>
+        </div>
+        <span class="pill success">Email + Alerta</span>
+      </div>
+      <div class="notice">
+        <div>
+          <div class="notice-title">Solicitud de descarga</div>
+          <p class="muted">Usuario autorizado solicita acceso temporal a liquidaciones.</p>
+        </div>
+        <span class="pill warning">Pendiente</span>
+      </div>
+      <div class="notice">
+        <div>
+          <div class="notice-title">Actualizacion de datos</div>
+          <p class="muted">Contabilidad actualizo contrato y anexos. Revisar cambios.</p>
+        </div>
+        <span class="pill neutral">En revision</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h2>Resumen de flujo</h2>
+        <button class="btn ghost">Ver detalle</button>
+      </div>
+      <div class="timeline" id="timeline"></div>
+    </div>
+  </section>
+
+  <script type="module" src="/app.js"></script>
+</BaseLayout>

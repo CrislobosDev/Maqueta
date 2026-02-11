@@ -1,0 +1,120 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Panel General - Anagami" active="panel">
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">Tecnologia e Innovacion</div>
+      <h1>Panel General</h1>
+      <p class="subtitle">
+        Maqueta minimalista para la intranet de Anagami Seguridad. Informacion y usuarios ficticios.
+      </p>
+    </div>
+    <div class="topbar-actions">
+      <button class="btn ghost">Exportar</button>
+      <button class="btn primary">Nueva carpeta</button>
+    </div>
+  </header>
+
+  <section class="grid kpis">
+    <div class="card">
+      <div class="card-label">Documentos activos</div>
+      <div class="card-value">1.284</div>
+      <div class="card-meta">+6% ultimo mes</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Trabajadores</div>
+      <div class="card-value">214</div>
+      <div class="card-meta">12 nuevas carpetas</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Alertas pendientes</div>
+      <div class="card-value">18</div>
+      <div class="card-meta">5 criticas</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Solicitudes de descarga</div>
+      <div class="card-value">9</div>
+      <div class="card-meta">Ultimas 48 horas</div>
+    </div>
+  </section>
+
+  <section class="grid two-cols">
+    <div class="card">
+      <div class="card-header">
+        <h2>Resumen operativo</h2>
+        <a class="btn ghost" href="/actividad">Ver actividad</a>
+      </div>
+      <div class="activity">
+        <div class="activity-item">
+          <div class="dot"></div>
+          <div>
+            <div class="name">Se creo carpeta para Emilia Vera</div>
+            <div class="muted">Administrador · hoy 08:32</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="dot"></div>
+          <div>
+            <div class="name">RRHH subio certificado de estudios</div>
+            <div class="muted">Camila Orellana · hoy 07:40</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="dot"></div>
+          <div>
+            <div class="name">Contabilidad actualizo liquidaciones</div>
+            <div class="muted">Matias Nuñez · ayer 17:05</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h2>Resumen de flujo</h2>
+        <a class="btn ghost" href="/notificaciones">Ver detalles</a>
+      </div>
+      <div class="timeline" id="timeline"></div>
+    </div>
+  </section>
+
+  <section class="grid two-cols">
+    <div class="card cta">
+      <div>
+        <h2>Centro de documentos</h2>
+        <p class="muted">Vista unificada para cargar y revisar documentos en la nube.</p>
+      </div>
+      <a class="btn primary" href="/documentos">Ir al repositorio</a>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h2>Perfiles y permisos</h2>
+        <a class="btn ghost" href="/perfiles">Gestionar</a>
+      </div>
+      <div class="role">
+        <div>
+          <div class="role-title">Administrador</div>
+          <p class="muted">Control total: carga, visualiza, confirma, elimina y actualiza.</p>
+        </div>
+        <span class="pill success">Completo</span>
+      </div>
+      <div class="role">
+        <div>
+          <div class="role-title">Recursos Humanos</div>
+          <p class="muted">Carga, visualiza y descarga. No elimina.</p>
+        </div>
+        <span class="pill neutral">Operativo</span>
+      </div>
+      <div class="role">
+        <div>
+          <div class="role-title">Contabilidad</div>
+          <p class="muted">Carga y visualiza. No elimina.</p>
+        </div>
+        <span class="pill neutral">Operativo</span>
+      </div>
+    </div>
+  </section>
+
+  <script type="module" src="/app.js"></script>
+</BaseLayout>

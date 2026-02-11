@@ -1,0 +1,94 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Perfiles - Anagami" active="perfiles">
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">Roles y permisos</div>
+      <h1>Perfiles</h1>
+      <p class="subtitle">Atribuciones jerarquicas para la intranet corporativa.</p>
+    </div>
+    <div class="topbar-actions">
+      <button class="btn ghost">Editar</button>
+      <button class="btn primary">Nuevo perfil</button>
+    </div>
+  </header>
+
+  <section class="grid two-cols">
+    <div class="card">
+      <div class="card-header">
+        <h2>Perfiles y permisos</h2>
+        <button class="btn ghost">Gestionar</button>
+      </div>
+      <div class="role">
+        <div>
+          <div class="role-title">Administrador</div>
+          <p class="muted">Control total: carga, visualiza, confirma, elimina y actualiza.</p>
+        </div>
+        <span class="pill success">Completo</span>
+      </div>
+      <div class="role">
+        <div>
+          <div class="role-title">Recursos Humanos</div>
+          <p class="muted">Carga, visualiza y descarga. No elimina.</p>
+        </div>
+        <span class="pill neutral">Operativo</span>
+      </div>
+      <div class="role">
+        <div>
+          <div class="role-title">Contabilidad</div>
+          <p class="muted">Carga y visualiza. No elimina.</p>
+        </div>
+        <span class="pill neutral">Operativo</span>
+      </div>
+      <div class="role">
+        <div>
+          <div class="role-title">Usuario autorizado</div>
+          <p class="muted">Solo visualiza y solicita permisos temporales.</p>
+        </div>
+        <span class="pill warning">Limitado</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h2>Usuarios ficticios</h2>
+        <button class="btn ghost">Exportar</button>
+      </div>
+      <div class="user-list">
+        <div class="user-item">
+          <div class="avatar">LR</div>
+          <div>
+            <div class="name">Laura Rojas</div>
+            <div class="muted">Recursos Humanos</div>
+          </div>
+          <span class="pill success">Activo</span>
+        </div>
+        <div class="user-item">
+          <div class="avatar">MN</div>
+          <div>
+            <div class="name">Matias Nuñez</div>
+            <div class="muted">Contabilidad</div>
+          </div>
+          <span class="pill success">Activo</span>
+        </div>
+        <div class="user-item">
+          <div class="avatar">CP</div>
+          <div>
+            <div class="name">Carolina Pardo</div>
+            <div class="muted">Usuario autorizado</div>
+          </div>
+          <span class="pill neutral">Solicitud</span>
+        </div>
+        <div class="user-item">
+          <div class="avatar">JA</div>
+          <div>
+            <div class="name">Javier Aguilar</div>
+            <div class="muted">Administrador</div>
+          </div>
+          <span class="pill success">Activo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

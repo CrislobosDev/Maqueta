@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { workers } from "../data/workers.js";
+
+const statusClass = (status) => {
+  if (status === "Activo") return "pill success";
+  if (status === "Revision") return "pill warning";
+  return "pill neutral";
+};
+---
+
+<BaseLayout title="Trabajadores - Anagami" active="trabajadores">
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">Carpetas de trabajadores</div>
+      <h1>Trabajadores</h1>
+      <p class="subtitle">Lista general para acceso a perfiles individuales.</p>
+    </div>
+    <div class="topbar-actions">
+      <button class="btn ghost">Filtrar</button>
+      <button class="btn primary">Nueva carpeta</button>
+    </div>
+  </header>
+
+  <section class="card">
+    <div class="card-header">
+      <h2>Trabajadores recientes</h2>
+      <span class="muted">Ultima actualizacion: 10 feb 2026</span>
+    </div>
+    <div class="table">
+      <div class="row header">
+        <div>Nombre</div>
+        <div>Area</div>
+        <div>Estado</div>
+      </div>
+      {workers.map((worker) => (
+        <div class="row" key={worker.id}>
+          <div>
+            <a class="name" href={`/trabajadores/${worker.id}`}>{worker.name}</a>
+            <div class="muted">RUT {worker.rut}</div>
+          </div>
+          <div>{worker.area}</div>
+          <div><span class={statusClass(worker.status)}>{worker.status}</span></div>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,69 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Documentos - Anagami" active="documentos">
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">Repositorio documental</div>
+      <h1>Documentos</h1>
+      <p class="subtitle">Gestiona carpetas y estados de documentos por trabajador.</p>
+    </div>
+    <div class="topbar-actions">
+      <button class="btn ghost">Filtrar</button>
+      <button class="btn primary">Subir documento</button>
+    </div>
+  </header>
+
+  <section class="grid two-cols">
+    <div class="card">
+      <div class="card-header">
+        <h2>Carpeta del trabajador</h2>
+        <button class="btn ghost">Editar</button>
+      </div>
+      <ul class="folder-list">
+        <li>Curriculum</li>
+        <li>Certificado de antecedentes</li>
+        <li>Certificado de residencia</li>
+        <li>Certificado de estudios</li>
+        <li>Fotocopia de cedula de identidad</li>
+        <li>Licencias medicas</li>
+        <li>Amonestaciones</li>
+        <li>Feriados legales</li>
+        <li>Capacitaciones</li>
+        <li>Liquidaciones</li>
+        <li>Contrato y anexos de contrato</li>
+        <li>Inasistencias</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h2>Estado de documentos</h2>
+        <button class="btn ghost">Historial</button>
+      </div>
+      <div class="doc-stack">
+        <div class="doc">
+          <div>
+            <div class="doc-title">Contrato y anexos</div>
+            <div class="muted">Actualizado hace 2 dias</div>
+          </div>
+          <span class="pill success">Confirmado</span>
+        </div>
+        <div class="doc">
+          <div>
+            <div class="doc-title">Licencias medicas</div>
+            <div class="muted">Pendiente revision</div>
+          </div>
+          <span class="pill warning">Revision</span>
+        </div>
+        <div class="doc">
+          <div>
+            <div class="doc-title">Capacitaciones</div>
+            <div class="muted">Nuevos certificados</div>
+          </div>
+          <span class="pill neutral">Nuevo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

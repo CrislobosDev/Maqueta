@@ -1,0 +1,38 @@
+export const workers = [
+  {
+    id: "camila-orellana",
+    name: "Camila Orellana",
+    rut: "19.122.334-5",
+    area: "Recursos Humanos",
+    status: "Activo",
+    summary: "Encargada de cargas documentales y seguimiento de certificados.",
+    lastUpdate: "10 feb 2026, 08:10",
+  },
+  {
+    id: "ignacio-vera",
+    name: "Ignacio Vera",
+    rut: "17.889.921-0",
+    area: "Operaciones",
+    status: "Revision",
+    summary: "Documentacion en revision por licencias medicas.",
+    lastUpdate: "10 feb 2026, 07:50",
+  },
+  {
+    id: "valentina-soto",
+    name: "Valentina Soto",
+    rut: "18.990.445-2",
+    area: "Contabilidad",
+    status: "Pendiente",
+    summary: "Pendiente de confirmacion en liquidaciones.",
+    lastUpdate: "09 feb 2026, 17:40",
+  },
+  {
+    id: "hector-aguilera",
+    name: "Hector Aguilera",
+    rut: "15.310.771-9",
+    area: "Seguridad",
+    status: "Activo",
+    summary: "Carpeta completa y actualizada.",
+    lastUpdate: "09 feb 2026, 16:20",
+  },
+];

@@ -1,0 +1,86 @@
+---
+import "../styles/global.css";
+
+const { title = "Anagami Intranet", active = "" } = Astro.props;
+const isActive = (key) => (active === key ? "nav-link active" : "nav-link");
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Serif:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">A</div>
+          <div>
+            <div class="brand-title">Anagami</div>
+            <div class="brand-sub">Intranet Corporativa</div>
+          </div>
+        </div>
+        <nav class="nav">
+          <a class={isActive("panel")} href="/panel">Panel</a>
+          <a class={isActive("trabajadores")} href="/trabajadores">Trabajadores</a>
+          <a class={isActive("documentos")} href="/documentos">Documentos</a>
+          <a class={isActive("notificaciones")} href="/notificaciones">Notificaciones</a>
+          <a class={isActive("perfiles")} href="/perfiles">Perfiles</a>
+          <a class={isActive("actividad")} href="/actividad">Actividad</a>
+        </nav>
+        <div class="sidebar-footer">
+          <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false">
+            <span class="theme-toggle__dot"></span>
+            <span class="theme-toggle__label">Modo oscuro</span>
+          </button>
+          <div class="user-chip">
+            <div class="avatar">DC</div>
+            <div>
+              <div class="user-name">Daniel Cerda</div>
+              <div class="user-role">Administrador</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <slot />
+      </main>
+    </div>
+
+    <script>
+      const root = document.documentElement;
+      const toggle = document.getElementById("themeToggle");
+      const label = toggle?.querySelector(".theme-toggle__label");
+
+      const getInitialTheme = () => {
+        const stored = localStorage.getItem("theme");
+        if (stored === "dark" || stored === "light") return stored;
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      };
+
+      const applyTheme = (theme) => {
+        root.dataset.theme = theme;
+        const isDark = theme === "dark";
+        toggle?.setAttribute("aria-pressed", String(isDark));
+        if (label) label.textContent = isDark ? "Modo claro" : "Modo oscuro";
+      };
+
+      if (toggle) {
+        applyTheme(getInitialTheme());
+        toggle.addEventListener("click", () => {
+          const next = root.dataset.theme === "dark" ? "light" : "dark";
+          localStorage.setItem("theme", next);
+          applyTheme(next);
+        });
+      }
+    </script>
+  </body>
+</html>

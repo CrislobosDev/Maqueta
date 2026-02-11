@@ -1,0 +1,115 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { workers } from "../../data/workers.js";
+
+export function getStaticPaths() {
+  return workers.map((worker) => ({
+    params: { id: worker.id },
+    props: { worker },
+  }));
+}
+
+const { worker } = Astro.props;
+
+const statusClass = (status) => {
+  if (status === "Activo") return "pill success";
+  if (status === "Revision") return "pill warning";
+  return "pill neutral";
+};
+
+const folders = [
+  "Curriculum",
+  "Certificado de antecedentes",
+  "Certificado de residencia",
+  "Certificado de estudios",
+  "Fotocopia de cedula de identidad",
+  "Licencias medicas",
+  "Amonestaciones",
+  "Feriados legales",
+  "Capacitaciones",
+  "Liquidaciones",
+  "Contrato y anexos de contrato",
+  "Inasistencias",
+];
+---
+
+<BaseLayout title={`Perfil - ${worker.name}`} active="trabajadores">
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">Perfil de trabajador</div>
+      <h1>{worker.name}</h1>
+      <p class="subtitle">RUT {worker.rut} · {worker.area}</p>
+    </div>
+    <div class="topbar-actions">
+      <a class="btn ghost" href="/trabajadores">Volver</a>
+      <button class="btn primary">Subir documento</button>
+    </div>
+  </header>
+
+  <section class="grid two-cols">
+    <div class="card">
+      <div class="card-header">
+        <h2>Resumen</h2>
+      </div>
+      <div class="doc">
+        <div>
+          <div class="doc-title">Estado</div>
+          <div class="muted">{worker.status}</div>
+        </div>
+        <span class={statusClass(worker.status)}>{worker.status}</span>
+      </div>
+      <div class="notice">
+        <div>
+          <div class="notice-title">Observaciones</div>
+          <p class="muted">{worker.summary}</p>
+        </div>
+      </div>
+      <div class="notice">
+        <div>
+          <div class="notice-title">Ultima actualizacion</div>
+          <p class="muted">{worker.lastUpdate}</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h2>Carpetas</h2>
+      </div>
+      <ul class="folder-list">
+        {folders.map((folder) => (
+          <li key={folder}>{folder}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-header">
+      <h2>Documentos recientes</h2>
+      <button class="btn ghost">Historial</button>
+    </div>
+    <div class="doc-stack">
+      <div class="doc">
+        <div>
+          <div class="doc-title">Contrato y anexos</div>
+          <div class="muted">Actualizado hace 2 dias</div>
+        </div>
+        <span class="pill success">Confirmado</span>
+      </div>
+      <div class="doc">
+        <div>
+          <div class="doc-title">Licencias medicas</div>
+          <div class="muted">Pendiente revision</div>
+        </div>
+        <span class="pill warning">Revision</span>
+      </div>
+      <div class="doc">
+        <div>
+          <div class="doc-title">Capacitaciones</div>
+          <div class="muted">Nuevos certificados</div>
+        </div>
+        <span class="pill neutral">Nuevo</span>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
