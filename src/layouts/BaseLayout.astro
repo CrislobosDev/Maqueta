@@ -19,6 +19,20 @@ const isActive = (key) => (active === key ? "nav-link active" : "nav-link");
   </head>
   <body>
     <div class="app">
+      <div class="mobile-header">
+        <button class="hamburger" id="navToggle" type="button" aria-expanded="false" aria-controls="sidebarNav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="brand">
+          <div class="brand-mark">A</div>
+          <div>
+            <div class="brand-title">Anagami</div>
+            <div class="brand-sub">Intranet Corporativa</div>
+          </div>
+        </div>
+      </div>
       <aside class="sidebar">
         <div class="brand">
           <div class="brand-mark">A</div>
@@ -27,7 +41,7 @@ const isActive = (key) => (active === key ? "nav-link active" : "nav-link");
             <div class="brand-sub">Intranet Corporativa</div>
           </div>
         </div>
-        <nav class="nav">
+        <nav class="nav" id="sidebarNav">
           <a class={isActive("panel")} href="/panel">Panel</a>
           <a class={isActive("trabajadores")} href="/trabajadores">Trabajadores</a>
           <a class={isActive("documentos")} href="/documentos">Documentos</a>
@@ -49,6 +63,7 @@ const isActive = (key) => (active === key ? "nav-link active" : "nav-link");
           </div>
         </div>
       </aside>
+      <div class="nav-backdrop" id="navBackdrop"></div>
 
       <main class="main">
         <slot />
@@ -59,6 +74,8 @@ const isActive = (key) => (active === key ? "nav-link active" : "nav-link");
       const root = document.documentElement;
       const toggle = document.getElementById("themeToggle");
       const label = toggle?.querySelector(".theme-toggle__label");
+      const navToggle = document.getElementById("navToggle");
+      const navBackdrop = document.getElementById("navBackdrop");
 
       const getInitialTheme = () => {
         const stored = localStorage.getItem("theme");
@@ -81,6 +98,26 @@ const isActive = (key) => (active === key ? "nav-link active" : "nav-link");
           applyTheme(next);
         });
       }
+
+      const setNavOpen = (isOpen) => {
+        document.body.classList.toggle("nav-open", isOpen);
+        navToggle?.setAttribute("aria-expanded", String(isOpen));
+      };
+
+      navToggle?.addEventListener("click", () => {
+        const isOpen = document.body.classList.contains("nav-open");
+        setNavOpen(!isOpen);
+      });
+
+      navBackdrop?.addEventListener("click", () => setNavOpen(false));
+
+      window.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") setNavOpen(false);
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 980) setNavOpen(false);
+      });
     </script>
   </body>
 </html>
